@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GFX Maker – made by 𝙺𝙰𝚆𝙰𝙺𝙸²²7</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary: linear-gradient(135deg, #00d4ff, #7e00ff);
+      --bg: #000000;
+      --glass: rgba(255, 255, 255, 0.05);
+      --text: #ffffff;
+      --muted: #aaaaaa;
+      --highlight: #00ffff;
+      --radius: 16px;
+      --blur: 12px;
+      --transition: 0.3s ease-in-out;
+      --glow: 0 0 15px rgba(0, 212, 255, 0.3);
+    }
+
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url('https://files.catbox.moe/05rbcu.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      margin: 0;
+    }
+
+    .container {
+      background: var(--glass);
+      backdrop-filter: blur(var(--blur));
+      border-radius: var(--radius);
+      box-shadow: var(--glow);
+      padding: 2rem;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.1);
+      animation: popin 0.8s ease;
+    }
+
+    h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+      background: var(--primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 2px;
+    }
+
+    input[type="text"],
+    input[type="button"] {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    input[type="text"] {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--text);
+    }
+
+    input[type="button"] {
+      background: var(--primary);
+      color: #000;
+      font-weight: bold;
+      font-family: 'Orbitron', sans-serif;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--glow);
+    }
+
+    input[type="button"]:hover {
+      transform: scale(1.05);
+    }
+
+    .footer {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    @keyframes popin {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2><i class="fas fa-wand-magic-sparkles"></i> KAWAKI GFX Maker</h2>
+    <form onsubmit="return false;">
+      <input type="text" id="name" placeholder="ENTER VOTRE NOM" required />
+      <input type="button" value="𝙲𝚁É𝙴 𝚄𝙽 𝙶𝙵𝚇 𝙼𝙰𝙸𝙽𝚃𝙴𝙽𝙰𝙽𝚃" onclick="deploy();" />
+    </form>
+    <p class="footer">MOOD by <strong>𝙺𝙰𝚆𝙰𝙺𝙸²²7</strong> | MERCI</p>
+  </div>
+
+  <script>
+    function deploy() {
+      const name = document.getElementById('name').value.trim();
+      if (name.length === 0) {
+        document.getElementById('name').focus();
+        return;
+      }
+      const deployURL = `https://api.nexoracle.com/image-creating/gfx11?apikey=03f7d2058d4201745b&text=${encodeURIComponent(name)}`;
+      window.open(deployURL, '_blank'); // Opens the URL in a new tab
+    }
+  </script>
+
+</body>
+  </html>
